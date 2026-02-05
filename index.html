@@ -833,7 +833,7 @@
                 id: 3,
                 text: "Asosiy bandlik holatingiz qanday?",
                 options: [
-                    { value: "A", label: "Yollanma xodim" },
+                    { value: "A", label: "Yollanma xodim/ishchi" },
                     { value: "B", label: "Tadbirkor/o`zini o`zi band qilgan" },
                     { value: "C", label: "Talaba" },
                     { value: "D", label: "Vaqtincha ishlamayman" },
@@ -842,11 +842,11 @@
             },
             {
                 id: 4,
-                text: "Siz davlat xizmatlaridan qanchalik tez-tez foydalanasiz?",
+                text: "Siz my.gov.uz yoki boshqa davlat raqamli xizmatlaridan qanchalik tez-tez foydalanasiz?",
                 options: [
-                    { value: "A", label: "Juda tez-tez" },
-                    { value: "B", label: "Vaqti-vaqti bilan" },
-                    { value: "C", label: "Kamdan-kam" },
+                    { value: "A", label: "Har oyda bir necha marta (juda tez-tez)" },
+                    { value: "B", label: "Vaqti-vaqti bilan (yiliga bir necha marta)" },
+                    { value: "C", label: "Kamdan-kam (yiliga 1-2 marta)" },
                     { value: "D", label: "Umuman foydalanmayman" }
                 ]
             },
@@ -854,88 +854,93 @@
                 id: 5,
                 text: "Xizmatlardan kam foydalanishingizga qaysi omillar ko`proq ta`sir qiladi?",
                 options: [
-                    { value: "A", label: "Xizmatlar haqida yetarli axborot mavjud emas" },
-                    { value: "B", label: "Xizmatdan foydalanish uchun alohida murojaat talab etiladi" },
-                    { value: "C", label: "Jarayon murakkab va ko`p vaqt oladi" },
-                    { value: "D", label: "Texnik yoki raqamli imkoniyatlar cheklangan" }
+                    { value: "A", label: "Xizmatlar haqida yetarli ma`lumot yo`q" },
+                    { value: "B", label: "Jarayon murakkab, ko‘p bosqichli va vaqt talab qiladi" },
+                    { value: "C", label: "Internet yoki smartfon imkoniyatlari cheklangan" },
+                    { value: "D", label: "Shaxsiy ma'lumotlarimning xavfsizligidan xavotirdaman" },
+                    { value: "E", label: "Kerakli xizmatni mustaqil izlashga to‘g‘ri kelishi" }
                 ]
             },
             {
                 id: 6,
-                text: "Sizga xizmatlar ehtiyoj paydo bo`lishidan oldin taklif etilsa, foydalanish ehtimolingiz qanday bo`lardi?",
+                text: "Agar davlat xizmatlari sizga ehtiyoj paydo bo‘lishidan oldin o‘zi taklif qilinsa (masalan, pasport muddati tugashiga 2 oy qolganda eslatma + avtomatik yangilash taklifi), foydalanish ehtimolingiz qanday o‘zgaradi?",
                 options: [
-                    { value: "A", label: "Biroz oshardi" },
-                    { value: "B", label: "O`zgarmasdi" },
-                    { value: "C", label: "Kamayardi" },
-                    { value: "D", label: "Bilmayman" }
+                    { value: "A", label: "Ancha oshadi" },
+                    { value: "B", label: "Biroz oshadi" },
+                    { value: "C", label: "O`zgarmaydi" },
+                    { value: "D", label: "Kamayadi" },
+                    { value: "E", label: "Bilmayman" }
                 ]
             },
             {
                 id: 7,
-                text: "Quyidagi holatlardan qaysi biri siz uchun eng muhim to`siq hisoblanadi?",
+                text: "Sizningcha, o‘zingizning raqamli savodxonligingiz qaysi darajada? (raqamli xizmatlardan foydalanish, ilovalarni o‘rnatish, onlayn shakllarni to‘ldirish va h.k.)",
                 options: [
-                    { value: "A", label: "O`z vaqtida xabardor qilinmaslik" },
-                    { value: "B", value: "A", label: "Kerakli xizmatni mustaqil izlashga to`g`ri kelishi" },
-                    { value: "C", label: "Hujjatlar va talablarning ko`pligi" },
-                    { value: "D", label: "Xizmat natijasiga ishonch pastligi" },
-                    { value: "E", label: "Shaxsiy ma`lumotlar bilan bog`liq xavotir" }
+                    { value: "A", label: "Yuqori (o‘zim hamma narsani osongina bajara olaman)" },
+                    { value: "B", label: "O‘rtacha (ko‘pincha bajara olaman, lekin ba'zan yordam kerak)" },
+                    { value: "C", label: "Past (ko‘pincha qiyinchilik tug‘iladi)" },
+                    { value: "D", label: "Umuman yo‘q (raqamli xizmatlardan foydalanmayman)" }
                 ]
             },
             {
                 id: 8,
-                text: "Agar xizmatlar avtomatik va o`z vaqtida taklif etilsa, umumiy bahoingiz qanday bo`lardi?",
+                text: "Agar davlat xizmatlari sizga ehtiyoj paydo bo‘lishidan oldin o‘zi taklif qilinsa (masalan, pasport muddati tugashiga 2 oy qolganda eslatma + avtomatik yangilash taklifi), umumiy bahoingiz qanday bo`lardi?",
                 type: "rating"
             },
             {
                 id: 9,
-                text: "Agar raqamli xizmatlardan tez-tez foydalanganingiz uchun davlat sizni rag`batlantirsa, bunday tizimga qanday munosabatdasiz?",
+                text: "Agar raqamli xizmatlardan tez-tez foydalanganingiz uchun davlat sizni rag‘batlantirsa (masalan, chegirmalar, bonus ballar, tezroq xizmat ko‘rsatish), bunday tizimga qanday munosabatdasiz?",
                 options: [
-                    { value: "A", label: "Qo`llab-quvvatlayman" },
-                    { value: "B", label: "Neytralman" },
-                    { value: "C", label: "Qo`llab-quvvatlamayman" }
+                    { value: "A", label: "To‘liq qo‘llab-quvvatlayman" },
+                    { value: "B", label: "Qisman qo‘llab-quvvatlayman (lekin shartlari adolatli bo‘lsa)" },
+                    { value: "C", label: "Neytralman" },
+                    { value: "D", label: "Qo‘llab-quvvatlamayman" }
                 ]
             },
             {
                 id: 10,
                 text: "Hukumat so`rovnomalarda ishtirok etganingiz yoki fikr bildirganingiz uchun sizga kichik mukofot (masalan, supermarket voucher yoki pul sovg`asi) bersa, bunday rag`batlantirishni qanday baholaysiz?",
                 options: [
-                    { value: "A", label: "Adolatli va yaxshi" },
-                    { value: "B", label: "Neytral munosabatdaman" },
-                    { value: "C", label: "Noto`g`ri deb hisoblayman" }
+                    { value: "A", label: "Juda adolatli va rag‘batlantiruvchi" },
+                    { value: "B", label: "Yaxshi, lekin katta ta'sir qilmaydi" },
+                    { value: "C", label: "Neytral" },
+                    { value: "D", label: "Noto`g`ri deb o`ylayman" }
                 ]
             },
             {
                 id: 11,
-                text: "Raqamli xizmatlardan faol foydalangan fuqarolarga \"Faol raqamli fuqaro\" statusi berilishi va bu status orqali xizmatlarda ustuvorlik yoki chegirma olish imkoniyati bo`lsa, bunday tizimni qanday deb hisoblaysiz?",
+                text: "\"Faol raqamli fuqaro\" statusi berilishi (yuqori ball to‘plaganlarga ustuvor xizmat, chegirma yoki maxsus imtiyozlar) jamiyatdagi ishonchni qanday o‘zgartirishi mumkin deb o‘ylaysiz?",
                 options: [
-                    { value: "A", label: "Foydali va yaxshi usul deb o`ylayman" },
-                    { value: "B", label: "Katta o`zgarishlarga olib kelmaydi (neytral)" },
-                    { value: "C", label: "Yomon oqibatlari ko`proq deb o`ylayman" }
+                    { value: "A", label: "Ishonchni sezilarli darajada oshiradi" },
+                    { value: "B", label: "Biroz oshiradi" },
+                    { value: "C", label: "O‘zgartirmaydi" },
+                    { value: "D", label: "Ishonchni pasaytiradi" }
                 ]
             },
             {
                 id: 12,
-                text: "Hukumatning raqamli platformalarda faol bo`lgan fuqarolarga rag`bat berishi (masalan, chegirma yoki tez xizmat) jamiyatdagi ishonchni qanday o`zgartirishi mumkin deb o`ylaysiz?",
+                text: "Agar raqamli xizmatlarda \"ball to‘plash\" tizimi bo‘lsa (masalan, xizmatdan foydalanish, so‘rovnomada qatnashish, donorlik orqali ball to‘plash va ularni chegirma yoki sovg‘aga almashtirish), bunday gamification (o‘yinlashtirish) tizimini qanday baholaysiz?",
                 type: "rating"
             },
             {
                 id: 13,
-                text: "Raqamli faol fuqarolarni rag`batlantirish tizimi O`zbekiston uchun qanchalik mos deb o`ylaysiz?",
+                text: "Bunday rag‘bat tizimlari (bonus, status, chegirma) O‘zbekiston uchun hozirgi vaqtda qanchalik mos?",
                 options: [
-                    { value: "A", label: "Juda mos" },
-                    { value: "B", label: "O`zgarish talab qilishi mumkin" },
-                    { value: "C", label: "Bunday tizim joriy qilish vaqti emas deb hisoblayman" },
-                    { value: "D", label: "Bilmayman" }
+                    { value: "A", label: "Juda mos – darhol joriy qilish mumkin" },
+                    { value: "B", label: "Mos, lekin avval sinovdan o‘tkazish kerak" },
+                    { value: "C", label: "Hali vaqti emas" },
+                    { value: "D", label: "Umuman mos emas" },
+                    { value: "E", label: "Bilmayman" }
                 ]
             },
             {
                 id: 14,
-                text: "O`zbekistonda davlat xizmatlarini raqamlashtirish va innovatsion mexanizmlarni joriy etishda qanday o`zgarishlar fuqarolar qoniqishini va ishonchini oshirishi mumkin deb o`ylaysiz? Batafsil yozing.",
+                text: "O‘zbekistonda raqamli hukumatni rivojlantirishda qanday o‘zgarishlar fuqarolar qoniqishini va hukumatga ishonchni eng ko‘p oshirishi mumkin deb o‘ylaysiz? (masalan, internet sifati, xavfsizlik, osonlik, proaktiv xizmatlar va h.k.) Batafsil yozing.",
                 type: "text"
             },
             {
                 id: 15,
-                text: "Raqamli hukumat tizimida fuqarolarning faolligini oshirish uchun qanday usullar eng samarali bo`ladi deb hisoblaysiz? O`z tajribangizdan misollar va takliflaringizni yozing.",
+                text: "Raqamli xizmatlardan faol foydalanishni oshirish uchun sizningcha eng samarali usullar qaysilar? O‘z tajribangizdan misollar keltiring va takliflaringizni yozing (masalan, qishloqlarda nima qilish kerak, yoshlarni qanday jalb qilish mumkin va h.k.).",
                 type: "text"
             }
         ];
@@ -1190,5 +1195,6 @@
     </script>
 </body>
 </html>
+
 
 
