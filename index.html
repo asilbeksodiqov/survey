@@ -184,6 +184,40 @@
             color: white;
         }
 
+        .participant-counter {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .counter-number {
+            font-family: 'Manrope', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            animation: countUp 0.6s ease-out;
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .counter-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
         .info-list {
             list-style: none;
             margin: 0;
@@ -725,17 +759,15 @@
                     <div class="info-title">
                         <div class="info-icon">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
                         </div>
-                        So'rovnoma haqida
+                        Ishtirokchilar
                     </div>
-                    <ul class="info-list">
-                        <li>So`rovnomada 15 ta savol mavjud</li>
-                        <li>Barcha savollar majburiy to`ldiriladi</li>
-                        <li>Taxminan 5-7 daqiqa vaqt ketadi</li>
-                        <li>Jarayon qulay va oddiy tuzilgan</li>
-                    </ul>
+                    <div class="participant-counter">
+                        <div class="counter-number" id="participantCount">0</div>
+                        <div class="counter-label">kishi so'rovnomada qatnashdi</div>
+                    </div>
                 </div>
 
                 <div class="alert-card">
@@ -875,7 +907,7 @@
                 text: "Quyidagi holatlardan qaysi biri siz uchun eng muhim to`siq hisoblanadi?",
                 options: [
                     { value: "A", label: "O`z vaqtida xabardor qilinmaslik" },
-                    { value: "B", value: "A", label: "Kerakli xizmatni mustaqil izlashga to`g`ri kelishi" },
+                    { value: "B", label: "Kerakli xizmatni mustaqil izlashga to`g`ri kelishi" },
                     { value: "C", label: "Hujjatlar va talablarning ko`pligi" },
                     { value: "D", label: "Xizmat natijasiga ishonch pastligi" },
                     { value: "E", label: "Shaxsiy ma`lumotlar bilan bog`liq xavotir" }
@@ -942,6 +974,25 @@
 
         let currentQuestionIndex = 0;
         let answers = {};
+
+        // Load participant count from localStorage
+        function loadParticipantCount() {
+            const count = localStorage.getItem('participantCount') || 0;
+            document.getElementById('participantCount').textContent = count;
+        }
+
+        // Increment participant count
+        function incrementParticipantCount() {
+            let count = parseInt(localStorage.getItem('participantCount') || 0);
+            count++;
+            localStorage.setItem('participantCount', count);
+            document.getElementById('participantCount').textContent = count;
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            loadParticipantCount();
+        });
 
         function startSurvey() {
             document.getElementById('welcomePage').classList.add('hidden');
@@ -1065,7 +1116,7 @@
 
         function nextQuestion() {
             // Check if question 4 answer is A, skip question 5
-            if (currentQuestionIndex === 3 && answers[4] === 1) {
+            if (currentQuestionIndex === 3 && answers[4] === 'A') {
                 if (currentQuestionIndex + 2 < questions.length) {
                     showQuestion(currentQuestionIndex + 2);
                 } else {
@@ -1132,6 +1183,9 @@
                 });
 
                 if (response.ok) {
+                    // Increment participant count
+                    incrementParticipantCount();
+                    
                     showToast('So\'rovnoma muvaffaqiyatli yuborildi!', 'success');
                     
                     // Reset and go back to welcome
@@ -1190,6 +1244,3 @@
     </script>
 </body>
 </html>
-
-
-
